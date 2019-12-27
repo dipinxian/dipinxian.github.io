@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          移动开发十大linux命令排行榜 - 蔡安纺 | Blog
+          Mac OS X 十大必备命令 - 蔡安纺 | Blog
         
     </title>
 
-    <link rel="canonical" href="http://www.dipinxian.top/article/移动开发十大linux命令排行榜/">
+    <link rel="canonical" href="http://www.dipinxian.top/article/Mac OS X 十大必备命令/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -90,7 +90,7 @@
                         <div class="tags">
                             
                         </div>
-                        <h1>移动开发十大linux命令排行榜</h1>
+                        <h1>Mac OS X 十大必备命令</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by Stephen on
@@ -212,132 +212,76 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <blockquote>
-<p>####移动开发十大linux命令Ranking<br>
-####<em>Top1</em></p>
-</blockquote>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">man</span><br></pre></td></tr></table></figure>
+                <p>####<em>Top1</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname -a</span><br></pre></td></tr></table></figure>
 <ul>
-<li>简单理解即男人可以帮助你,它是一个命令使用手册.</li>
-<li>man命令可以帮助查找各种命令的用法,当然也可以查找自身(man 命令)的用法,命令为man man.</li>
-<li>man具体命令格式为: man  [-acdfFhkKtwW]  [–path] [-m system] [-p string] [-C config_file] [-M pathlist] [-P pager]  [-B browser] [-H htmlpager] [-S section_list] [section] name …,[]内均为可选项.详细用法可以查看OPTIONS.</li>
-<li>常用命令：man man,man ls,man cat ,man sudo…</li>
-<li>如果执行man命令后,终端界面显示No manual entry for 你查找的命令,说明内核中无法找到此命令.if you want use it ,please install  first.Mac下一般使用 brew install 命令安装.很有可能,你需要先安装brew工具😎.</li>
-<li>第一个命令详细解释了,后面的命令都可以通过man 命令查看详细的用法,文档没什么好说的了,毕竟,对于编程而言,英文是最基本的.</li>
+<li>此命令打印出操作系统名字,版本,xnu版本,cpu型号等.</li>
+<li>xnu版本可在<a href="https://opensource.apple.com/release/macos-10136.html" target="_blank" rel="noopener">https://opensource.apple.com</a>中查找.</li>
 </ul>
 <p>####<em>Top2</em></p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pwd</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">system_profiler -listDataTypes</span><br><span class="line">system_profiler SPHardwareDataType</span><br></pre></td></tr></table></figure>
 <ul>
-<li>pwd命令展示当前用户所在目录/路径<br>
-当你打开termianl interface,默认是处于~目录,~代表用户目录,就是你当前电脑所在的用户。</li>
-<li>常用命令:直接输入pwd就🆗了.我打印结果是:/Users/dev4mobile</li>
+<li>以上命令打印出Mac 硬件信息.</li>
+<li>system_profiler可以命令打印Mac OSX系统硬件和软件的配置</li>
+<li>listDataTypes 在man system_profiler命令中查找</li>
+<li>SPHardwareDataType 参数在 system_profiler -listDataTypes 命令中查找<br>
+####<em>Top3</em></li>
 </ul>
-<p>####<em>Top3</em></p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl -n machdep.cpu.brand_string</span><br></pre></td></tr></table></figure>
 <ul>
-<li>cd命令可以访问文件的路径</li>
-<li>当你打开termianl interface,默认是处于~目录,~代表用户目录,就是你当前电脑所在的用户.</li>
-<li>用法：cd 文件路径<br>
-####<em>Top4</em></li>
+<li>以上命令打印出 cup的商标</li>
+<li>sysctl 设置或得到内核的状态或者打印硬件信息.</li>
+<li>machdep.cpu.brand_string 代表cup商标,在man sysctl 命令中可以找到.</li>
 </ul>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -ail</span><br></pre></td></tr></table></figure>
+<p>####<em>Top4</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">launchctl version      //  Prints the launchd version.</span><br><span class="line">launchctl list         //  Lists information about services.</span><br><span class="line">launchctl list   com.apple.Finder</span><br></pre></td></tr></table></figure>
 <ul>
-<li>
-<p>ls命令可以展示当前文件</p>
-</li>
-<li>
-<p>参数-a(all的简写)可以展示隐藏文件和非隐藏文件</p>
-</li>
-<li>
-<p>参数-i可以打印出文件的index node即索引节点,也叫i节点,可以对应0个或多个文件描述符.文件管理系统通过inode,可以找到数据块,数据块中又包含了文件的内容或者子文件的inode,又可以找到子文件的数据块.下面的cat命令读取数据就是这个原理.</p>
-</li>
-<li>
-<p>参数-l列出多个文件属性,包括文件的共享与权限,所属用户,所属组,大小,修改时间,文件名.例如:<br>
-8600853067   drwxr-xr-x  10 dev4mobile  staff    320 Dec 31 02:46 .<br>
-588582           drwxr-xr-x+ 93 dev4mobile  staff   2976 Jan  7 23:30 …<br>
-8602295238   -rw-r–r--@   1 dev4mobile  staff      15 Jan  7 17:10 config.txt<br>
-第一行最后点号(.)指代当前文件夹<br>
-第二行最后的…代表上一层文件夹. cd …命令可以回到上一层文件目录.</p>
-<h6 id="drwxr-xr-x第一位代表文件的类型">drwxr-xr-x,第一位代表文件的类型</h6>
-</li>
-<li>
-<p>-代表普通文件</p>
-</li>
-<li>
-<p>c(即character)代表字符设备文件.键盘鼠标,终端等设备文件就属于这一类.通过cd /dev &amp;&amp; ls -ail可以查看.</p>
-</li>
-<li>
-<p>b(即block)代表块文件.如硬盘,软盘等带缓冲区的设备文件属于块文件</p>
-</li>
-<li>
-<p>d代表directory,即目录文件.目录文件本质是存储了一张表,该表内容是inode number 和文件名的映射.</p>
-</li>
-<li>
-<p>l代表链接文件</p>
-</li>
-</ul>
-<h6 id="后面9位分三组">后面9位分三组</h6>
-<ul>
-<li>前三位代表的是:      文件拥有者(指当前登陆用户)对文件的权限,用u表示</li>
-<li>中间三位代表的是：文件拥有者同一组内用户对文件的权限,用g表示</li>
-<li>后三位代表的是：   其他组用户对文件的权限,用o表示<br>
-文件的权限包括: 是否有可读,可写,可执行的权限,分别用rwx表示(分别代表read,write,execute).不可的话就用-表示. u+g+o = all,三者整体可以用a(all的简写)表示,下文chomd命令会用到.</li>
+<li>launchctl命令是用来和内核进程launchd交互的.可以操纵launchd的启动,停止.</li>
+<li>Mac OS X系统启动过程:BIOS自检-&gt;加载内核-&gt;加载launchd-&gt;启动系统级别守护进程和代理程序-&gt;创建终端-&gt;登陆-&gt;启动用户级别守护进程和代理程序</li>
+<li>services 就是各种守护程序和代理程序.</li>
 </ul>
 <p>####<em>Top5</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo spctl --master-disable</span><br></pre></td></tr></table></figure>
 <ul>
-<li>cat命令是Linux下的一个文本输出命令，通常是用于查看/打印某个文件的内容的</li>
-<li>cat具体命令格式为 : cat [-AbeEnstTuv] [–help] [–version] fileName</li>
-<li>cat /etc/passwd,查看所有用户</li>
-<li>cat /etc/groups,查看所有组</li>
-<li>cat /etc/hosts,查看主机名和IP映射关系的</li>
-<li>cat /etc/sudoers,查看用户执行的权限.该文件允许特定用户像root用户一样使用各种各样的命令,而不需要root用户的密码.用户执行sudo命令时,会找到 /etc/sudoers文件,判断该用户是否有执行sudo的权限.</li>
-<li>cat /etc/shells,查看支持的shell类型</li>
-<li>cat /etc/tyys,此文件是系统启动是0号进程来读取,并生成gett进程.</li>
+<li>此命令允许任何来源的应用程序安装到电脑中.系统默认是不允许的,有时安装应用程序需要使用到</li>
+<li>spctl命令用于设置子评估系统的策略安全/是否可用</li>
 </ul>
 <p>####<em>Top6</em></p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo  chmod</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifcofig</span><br></pre></td></tr></table></figure>
 <ul>
-<li>chmod命令可以改变文件的权限</li>
-<li>安装第三方工具时,经常写入系统文件夹,而普通用户对系统文件夹是不具备w权限的,常常会使用chomd a+w  fileName 命令使其具有可写入的权限.<br>
-但往往出现Operation not permitted,请使用sudo chmod a+w  fileName.</li>
-<li>sudo是以系统管理员身份(root用户)来执行这个命名,每次执行sudo chmod a+w  fileName会提示输入当前用户密码,输入即可.</li>
-<li>常用命令:sudo chmod a+w  fileName(例如brew的安转,需要cd /etc/local/Cellar,然后执行此命令).</li>
+<li>此命令用于配置网络接口参数.查看IP地址和Mac地址.</li>
+<li>直接使用ifcofig命令,在en0的位置可以显示Mac的网卡,IP,Mac地址等.</li>
+<li>Mac地址:Mac不是指Mac电脑,而是Media Access Control地址,指的是网卡地址,用6字节十六进制表示.一台设备如果有一个或多个网卡,则每个网卡都有一个唯一的Mac地址.</li>
+<li>IP地址和Mac地址是由ARP协议一一映射的<br>
+####<em>Top7</em></li>
 </ul>
-<p>####<em>Top7</em></p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir/touch</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping -c 100 -s  200  www.google.com</span><br></pre></td></tr></table></figure>
 <ul>
-<li>mkdir命令：在当前路径下创建文件夹</li>
-<li>touch命令：在当前路径下创建文件,当然也可以更改访问和修改时间,只是在下用此命令创建文件比较多,当然更常用的是vim文本编辑器.</li>
-<li>用法：mkdir/touch fileName<br>
-####<em>Top8</em></li>
+<li>ping命令一般用于测试网络/检测主机是否可以访问.它是使用ICMP协议,发出请求,如果主机能连通,会收到响应.如果不通,会提示cannot resolve host / time out.</li>
+<li>c是count,代表打印到终端的次数</li>
+<li>s为size,代表每次传输多少字节,默认是56个字节</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim</span><br></pre></td></tr></table></figure>
+<p>####<em>Top8</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">top</span><br><span class="line">ps aux | grep qq</span><br></pre></td></tr></table></figure>
 <ul>
-<li>vi是所有unix like 内置的文本编辑器,vim是vi的升级版,是一个很好的文本编程工具.</li>
-<li>vim命令比较多,学习曲线较陡峭,但熟练后效率比较高.</li>
-<li>用法：vim fileName<br>
-vim常用命令:<a href="https://www.fprintf.net/vimCheatSheet.html" target="_blank" rel="noopener">Vim Commonds Cheat Sheet</a><br>
-####<em>Top9</em></li>
+<li>top命令用于实时显示进程状态</li>
+<li>ps aux | grep qq打印的是qq进程的行信息,包括USERPID,%CPU ,%MEM,VSZ,RSS,TT,STAT,STARTED,TIME等KEYWORDS,这些KEYWORDS可以通过ps aux 命令查看到,并且man  ps命令均可查看各字段的意思.</li>
 </ul>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find</span><br></pre></td></tr></table></figure>
+<p>####<em>Top9</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dscl . -list /Users UniqueID           //查看用户</span><br><span class="line">dscl . -list /Groups  PrimaryGroupID   //查看用户组</span><br></pre></td></tr></table></figure>
 <ul>
-<li>find命令用于查找文件或目录</li>
-<li>用法：find ~  -name config.txt(在用户目录查看名字为config.txt的文件,路径和文件名替换成你自己的)</li>
+<li>dscl命令用于用户和用户组的管理,均可以添加,删除,修改用户和用户组.</li>
 </ul>
 <p>####<em>Top10</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nc -l 8888             // server,服务端</span><br><span class="line">nc 另一台电脑的IP 8888   // client,客户端</span><br></pre></td></tr></table></figure>
 <ul>
-<li>echo命令用于输出字符换,环境变量(在~/.bash_profile文件中配置).</li>
-<li>常用命令：echo $PATH,echo $SHELL.($PATH,$SHELL均为环境变量,可以通过env命令打印出所有环境变量)</li>
+<li>以上两个命令可以实现局域网内的通讯.</li>
+<li>两台电脑的端口必须一致</li>
+<li>当然还可以实现局域网文件传输,类似于AirDrop功能.</li>
 </ul>
-<p>##小结</p>
-<ul>
-<li>以上为开发中经常用到的linux十大常用命令,你有同感吗？</li>
-<li>以上仅为常用命令的一些简要介绍,还有一些常用命令比如ifconfig,ping,source,ps,lsof,nc等尚未做出介绍.</li>
-<li>以上用法仅限于个人使用较多,更详细的用法规则请使用man命令查看.</li>
-<li>要使用以上命令,请先打开Mac上的termianl.app,然后在终端界面输入以上提到的命令</li>
-</ul>
+<blockquote>
+<p>Just  Here.Thank you for your attention and likes,The best wishes to you,Thank you.</p>
+</blockquote>
 
                 
 
@@ -345,13 +289,9 @@ vim常用命令:<a href="https://www.fprintf.net/vimCheatSheet.html" target="_bl
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/article/Mac OS X 十大必备命令/" data-toggle="tooltip" data-placement="top" title="Mac OS X 十大必备命令">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/article/Swizzle在AFNetworking中的实践/" data-toggle="tooltip" data-placement="top" title="Swizzle在AFNetworking中的实践">Next Post &rarr;</a>
+                            <a href="/article/移动开发十大linux命令排行榜/" data-toggle="tooltip" data-placement="top" title="移动开发十大linux命令排行榜">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -402,24 +342,6 @@ vim常用命令:<a href="https://www.fprintf.net/vimCheatSheet.html" target="_bl
             
             <!-- Tabe of Content -->
             <!-- Table of Contents -->
-
-  
-    <style>
-      span.toc-nav-number{
-        display: none
-      }
-    </style>
-  
-    
-      <aside id="sidebar">
-        <div id="toc" class="toc-article">
-        <strong class="toc-title">Contents</strong>
-        
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#drwxr-xr-x第一位代表文件的类型"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">drwxr-xr-x,&#x7B2C;&#x4E00;&#x4F4D;&#x4EE3;&#x8868;&#x6587;&#x4EF6;&#x7684;&#x7C7B;&#x578B;</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#后面9位分三组"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">&#x540E;&#x9762;9&#x4F4D;&#x5206;&#x4E09;&#x7EC4;</span></a></li></ol>
-        
-        </div>
-      </aside>
-    
 
                 
             <!-- Sidebar Container -->
