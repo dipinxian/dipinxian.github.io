@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          Swizzle在AFNetworking中的实践 - 蔡安纺 | Blog
+          X十大必备命令 - 蔡安纺 | Blog
         
     </title>
 
-    <link rel="canonical" href="http://www.dipinxian.top/article/Swizzle在AFNetworking中的实践/">
+    <link rel="canonical" href="http://www.dipinxian.top/article/Mac OS X十大必备命令/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -90,7 +90,7 @@
                         <div class="tags">
                             
                         </div>
-                        <h1>Swizzle在AFNetworking中的实践</h1>
+                        <h1>X十大必备命令</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by Stephen on
@@ -212,61 +212,79 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>#阐述#<br>
-相信iOS开发的同学如果使用了AFNetworking这个第三方框架,可能会碰到以下Bug：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Error Domain=com.alamofire.error.serialization.responseCode=-1016&quot;Request failed:</span><br><span class="line"> unacceptable content-type: text/html&quot;UserInfo=&#123;com.alamofire.serialization.response.error.response</span><br><span class="line">= &#123; URL: http://c.m.163.com/nc/article/headline/T1348647853363/0-140.html &#125;</span><br><span class="line">&#123; statuscode:200, headers &#123; .....&#125;......22222c22626f6172646964223a226e6577735f7368656</span><br><span class="line">87569375f626273222c227074696d65223a22323031362d30332d30332031313a30323a3435227d5d7d&gt;,</span><br><span class="line"> NSLocalizedDescription=Request failed: unacceptablecontent-type: text/html&#125;</span><br></pre></td></tr></table></figure>
-<p>众所周知,这是AFNetworking不支持解析text/html(非官方的html)格式的数据.</p>
-<p>#思路#<br>
-按道理讲：我们只要把</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">self.acceptableContentTypes= [NSSetsetWithObjects:@&quot;application/json&quot;,@&quot;text/json&quot;,</span><br><span class="line">@&quot;text/javascript&quot;,nil];</span><br></pre></td></tr></table></figure>
-<p>#####变成</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">self.acceptableContentTypes= [NSSetsetWithObjects:@&quot;application/json&quot;,@&quot;text/json&quot;,@&quot;text/javascript&quot;,@&quot;text/html&quot;,nil];</span><br></pre></td></tr></table></figure>
-<p>思路是完全正确的，但是我们真正处理起来就会有麻烦：</p>
-<p>我们一般是用cocoapods来管理第三方库的,方便第三方库的版本更新。既然是pod管理的,我们就无法去更改源代码,即便更改了,下次pod更新了,也会把修改好的代码覆盖掉。这样我们就需要其他方法来彻底解决这个问题了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@implementation  AFJSONResponseSerializer</span><br><span class="line">- (instancetype)init &#123;</span><br><span class="line">  self= [super init];</span><br><span class="line">  if(!self) &#123;</span><br><span class="line">     return nil;</span><br><span class="line">  &#125;</span><br><span class="line">  self.acceptableContentTypes= [NSSet setWithObjects:@&quot;application/json&quot;,@&quot;text/json&quot;,@&quot;text/javascript&quot;,nil];</span><br><span class="line">  return self;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote></blockquote>
-<p>上面这个方法是在AFJSONResponseSerializer 的init方法了设置acceptableContentTypes。如果我们能够复写AFJSONResponseSerializer的init方法或者替换掉这个方法,改成我们想实现的,应该就可以实现了!</p>
-<p>首先,大家想到的肯定是通过子类继承的方法去复写此方法,但是继承肯定不方便了。<br>
-那么，通过类目去复写此方法,能不能实现呢？答案是否定的</p>
-<p>1.类目中不能super</p>
-<p>2.类目的本质是给原始类增加方法,而不是修改修改原始类的方法.要覆盖原始类的方法可以通过子类继承的方式,这里用继承肯定不方便了。</p>
-<blockquote>
-<p>重要的事情说三遍:<br>
-不要类目在覆盖原始类的方法<br>
-不要类目在覆盖原始类的方法<br>
-不要类目在覆盖原始类的方法</p>
+                <blockquote>
+<h3 id="十大mac-os-x必备命令">十大Mac OS X必备命令</h3>
 </blockquote>
+<p>####<em>Top1</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname -a</span><br></pre></td></tr></table></figure>
+<ul>
+<li>此命令打印出操作系统名字,版本,xnu版本,cpu型号等.</li>
+<li>xnu版本可在<a href="https://opensource.apple.com/release/macos-10136.html" target="_blank" rel="noopener">https://opensource.apple.com</a>中查找.</li>
+</ul>
+<p>####<em>Top2</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">system_profiler -listDataTypes</span><br><span class="line">system_profiler SPHardwareDataType</span><br></pre></td></tr></table></figure>
+<ul>
+<li>以上命令打印出Mac 硬件信息.</li>
+<li>system_profiler可以命令打印Mac OSX系统硬件和软件的配置</li>
+<li>listDataTypes 在man system_profiler命令中查找</li>
+<li>SPHardwareDataType 参数在 system_profiler -listDataTypes 命令中查找<br>
+####<em>Top3</em></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl -n machdep.cpu.brand_string</span><br></pre></td></tr></table></figure>
+<ul>
+<li>以上命令打印出 cup的商标</li>
+<li>sysctl 设置或得到内核的状态或者打印硬件信息.</li>
+<li>machdep.cpu.brand_string 代表cup商标,在man sysctl 命令中可以找到.</li>
+</ul>
+<p>####<em>Top4</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">launchctl version      //  Prints the launchd version.</span><br><span class="line">launchctl list         //  Lists information about services.</span><br><span class="line">launchctl list   com.apple.Finder</span><br></pre></td></tr></table></figure>
+<ul>
+<li>launchctl命令是用来和内核进程launchd交互的.可以操纵launchd的启动,停止.</li>
+<li>Mac OS X系统启动过程:BIOS自检-&gt;加载内核-&gt;加载launchd-&gt;启动系统级别守护进程和代理程序-&gt;创建终端-&gt;登陆-&gt;启动用户级别守护进程和代理程序</li>
+<li>services 就是各种守护程序和代理程序.</li>
+</ul>
+<p>####<em>Top5</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo spctl --master-disable</span><br></pre></td></tr></table></figure>
+<ul>
+<li>此命令允许任何来源的应用程序安装到电脑中.系统默认是不允许的,有时安装应用程序需要使用到</li>
+<li>spctl命令用于设置子评估系统的策略安全/是否可用</li>
+</ul>
+<p>####<em>Top6</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifcofig</span><br></pre></td></tr></table></figure>
+<ul>
+<li>此命令用于配置网络接口参数.查看IP地址和Mac地址.</li>
+<li>直接使用ifcofig命令,在en0的位置可以显示Mac的网卡,IP,Mac地址等.</li>
+<li>Mac地址:Mac不是指Mac电脑,而是Media Access Control地址,指的是网卡地址,用6字节十六进制表示.一台设备如果有一个或多个网卡,则每个网卡都有一个唯一的Mac地址.</li>
+<li>IP地址和Mac地址是由ARP协议一一映射的<br>
+####<em>Top7</em></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping -c 100 -s  200  www.google.com</span><br></pre></td></tr></table></figure>
+<ul>
+<li>ping命令一般用于测试网络/检测主机是否可以访问.它是使用ICMP协议,发出请求,如果主机能连通,会收到响应.如果不通,会提示cannot resolve host / time out.</li>
+<li>c是count,代表打印到终端的次数</li>
+<li>s为size,代表每次传输多少字节,默认是56个字节</li>
+</ul>
+<p>####<em>Top8</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">top</span><br><span class="line">ps aux | grep qq</span><br></pre></td></tr></table></figure>
+<ul>
+<li>top命令用于实时显示进程状态</li>
+<li>ps aux | grep qq打印的是qq进程的行信息,包括USERPID,%CPU ,%MEM,VSZ,RSS,TT,STAT,STARTED,TIME等KEYWORDS,这些KEYWORDS可以通过ps aux 命令查看到,并且man  ps命令均可查看各字段的意思.</li>
+</ul>
+<p>####<em>Top9</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dscl . -list /Users UniqueID           //查看用户</span><br><span class="line">dscl . -list /Groups  PrimaryGroupID   //查看用户组</span><br></pre></td></tr></table></figure>
+<ul>
+<li>dscl命令用于用户和用户组的管理,均可以添加,删除,修改用户和用户组.</li>
+</ul>
+<p>####<em>Top10</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nc -l 8888             // server,服务端</span><br><span class="line">nc 另一台电脑的IP 8888   // client,客户端</span><br></pre></td></tr></table></figure>
+<ul>
+<li>以上两个命令可以实现局域网内的通讯.</li>
+<li>两台电脑的端口必须一致</li>
+<li>当然还可以实现局域网文件传输,类似于AirDrop功能.</li>
+</ul>
 <blockquote>
-<p>原因是：纵观苹果的api,以NSString为例,有NSStringExtensionMethods,NSStringEncodingDetection等各种分类方法,如果我们再写一个分类覆盖原分类里的方法,那么系统就无法区分是A分类方法覆盖B分类的方法,还是B分类方法覆盖A分类的方法。</p>
+<p>Just  Here.Thank you for your attention and likes,The best wishes to you,Thank you.</p>
 </blockquote>
-<p>最后,只有最后一个办法了,通过类目去替换掉AFJSONResponseSerializer的init方法.<br>
-原理就是Method Swizzle<br>
-#解决方案#<br>
-代码实现如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;AFNetworking/AFNetworking.h&gt;</span><br><span class="line">@interface AFJSONResponseSerializer (Category)</span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">#import&quot; AFJSONResponseSerializer+Category.h&quot;</span><br><span class="line">@implementation AFJSONResponseSerializer (Category)</span><br><span class="line"></span><br><span class="line">+ (void)load &#123;</span><br><span class="line">   staticdispatch_once_tonceToken;</span><br><span class="line">   dispatch_once(&amp;onceToken, ^&#123;</span><br><span class="line">   Method orignalMethod =class_getClassMethod([selfclass],@selector(init));            </span><br><span class="line">   Method swizzledMethod   </span><br><span class="line">     =class_getClassMethod([selfclass],@selector(dev4mobile_init));</span><br><span class="line">   method_exchangeImplementations(orignalMethod, swizzledMethod);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (instancetype)dev4mobile_init &#123;</span><br><span class="line">    [self dev4mobile_init];</span><br><span class="line">    self.acceptableContentTypes = [NSSetsetWithObjects:@&quot;application/json&quot;,@&quot;text/json&quot;,@&quot;text/javascript&quot;,@&quot;text/html&quot;,nil];</span><br><span class="line">    return self;</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>此处要注意的有几点：</p>
-</blockquote>
-<p>1.load是在程序的main函数之前就调用的,当程序开始运行,而不是编译的时候,调用load方法。未了保证全局的去交换AFJSONResponseSerializer的init方法和dev4mobile_init的IMP(函数指针)。</p>
-<p>2.用dispatch_once去保证两个方法的指针只交换一次。为了避免多线程出现多次调用的结果。</p>
-<p>3.有的人可能觉得调用[self dev4mobile_init];方法时会产生递归。其实不然，正确的顺序是这样的，AFJSONResponseSerializer先调用自身init方法,但是指向init方法的selector已经指向了dev4mobile_init方法了,所以会调到分类方法中,而调用[self dev4mobile_init];方法是,指向dev4mobile_init的selector指向的是AFJSONResponseSerializer的init方法,走完init方法,就会走</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">self.acceptableContentTypes= [NSSetsetWithObjects:@&quot;application/json&quot;,@&quot;text/json&quot;,@&quot;text/javascript&quot;,@&quot;text/html&quot;,nil];</span><br></pre></td></tr></table></figure>
-<p>这行代码了。</p>
-<p>4.Method swizzledMethod原理就是交换两个selector所指向的IMP.还有很多其他的实际用途:例如你不想调用UITextField一个的代理方法,想调到自定义的方法,此时就可以用她来hook一下。</p>
-<p>5.把dev4mobile_init换成xxx_init(xxx为自己命名的前缀)。</p>
-<blockquote>
-<p>这里是关于Method Swizzle的几个陷阱：<br>
-Method swizzling is not atomic<br>
-Changes behavior of un-owned<br>
-codePossible naming conflicts<br>
-Swizzling changes the method’s arguments<br>
-The order of swizzles matters<br>
-Difficult to understand (looks recursive)<br>
-Difficult to debug</p>
-</blockquote>
-<p>大家自己体会一下。</p>
-<hr>
-<p>推荐念茜的一篇Method Swizzle博客给大家<a href="http://blog.csdn.net/yiyaaixuexi/article/details/9374411" target="_blank" rel="noopener">http://blog.csdn.net/yiyaaixuexi/article/details/9374411</a></p>
 
                 
 
@@ -274,10 +292,10 @@ Difficult to debug</p>
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/article/移动开发十大linux命令排行榜/" data-toggle="tooltip" data-placement="top" title="移动开发十大linux命令排行榜">&larr; Previous Post</a>
-                        </li>
                     
+                        <li class="next">
+                            <a href="/article/移动开发十大linux命令排行榜/" data-toggle="tooltip" data-placement="top" title="移动开发十大linux命令排行榜">Next Post &rarr;</a>
+                        </li>
                     
                 </ul>
 

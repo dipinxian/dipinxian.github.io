@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          Swizzle在AFNetworking中的实践 - 蔡安纺 | Blog
+          移动开发十大linux命令排行榜 - 蔡安纺 | Blog
         
     </title>
 
-    <link rel="canonical" href="http://www.dipinxian.top/article/Swizzle在AFNetworking中的实践/">
+    <link rel="canonical" href="http://www.dipinxian.top/article/移动开发十大linux命令排行榜/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -90,7 +90,7 @@
                         <div class="tags">
                             
                         </div>
-                        <h1>Swizzle在AFNetworking中的实践</h1>
+                        <h1>移动开发十大linux命令排行榜</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by Stephen on
@@ -212,61 +212,132 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>#阐述#<br>
-相信iOS开发的同学如果使用了AFNetworking这个第三方框架,可能会碰到以下Bug：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Error Domain=com.alamofire.error.serialization.responseCode=-1016&quot;Request failed:</span><br><span class="line"> unacceptable content-type: text/html&quot;UserInfo=&#123;com.alamofire.serialization.response.error.response</span><br><span class="line">= &#123; URL: http://c.m.163.com/nc/article/headline/T1348647853363/0-140.html &#125;</span><br><span class="line">&#123; statuscode:200, headers &#123; .....&#125;......22222c22626f6172646964223a226e6577735f7368656</span><br><span class="line">87569375f626273222c227074696d65223a22323031362d30332d30332031313a30323a3435227d5d7d&gt;,</span><br><span class="line"> NSLocalizedDescription=Request failed: unacceptablecontent-type: text/html&#125;</span><br></pre></td></tr></table></figure>
-<p>众所周知,这是AFNetworking不支持解析text/html(非官方的html)格式的数据.</p>
-<p>#思路#<br>
-按道理讲：我们只要把</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">self.acceptableContentTypes= [NSSetsetWithObjects:@&quot;application/json&quot;,@&quot;text/json&quot;,</span><br><span class="line">@&quot;text/javascript&quot;,nil];</span><br></pre></td></tr></table></figure>
-<p>#####变成</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">self.acceptableContentTypes= [NSSetsetWithObjects:@&quot;application/json&quot;,@&quot;text/json&quot;,@&quot;text/javascript&quot;,@&quot;text/html&quot;,nil];</span><br></pre></td></tr></table></figure>
-<p>思路是完全正确的，但是我们真正处理起来就会有麻烦：</p>
-<p>我们一般是用cocoapods来管理第三方库的,方便第三方库的版本更新。既然是pod管理的,我们就无法去更改源代码,即便更改了,下次pod更新了,也会把修改好的代码覆盖掉。这样我们就需要其他方法来彻底解决这个问题了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@implementation  AFJSONResponseSerializer</span><br><span class="line">- (instancetype)init &#123;</span><br><span class="line">  self= [super init];</span><br><span class="line">  if(!self) &#123;</span><br><span class="line">     return nil;</span><br><span class="line">  &#125;</span><br><span class="line">  self.acceptableContentTypes= [NSSet setWithObjects:@&quot;application/json&quot;,@&quot;text/json&quot;,@&quot;text/javascript&quot;,nil];</span><br><span class="line">  return self;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote></blockquote>
-<p>上面这个方法是在AFJSONResponseSerializer 的init方法了设置acceptableContentTypes。如果我们能够复写AFJSONResponseSerializer的init方法或者替换掉这个方法,改成我们想实现的,应该就可以实现了!</p>
-<p>首先,大家想到的肯定是通过子类继承的方法去复写此方法,但是继承肯定不方便了。<br>
-那么，通过类目去复写此方法,能不能实现呢？答案是否定的</p>
-<p>1.类目中不能super</p>
-<p>2.类目的本质是给原始类增加方法,而不是修改修改原始类的方法.要覆盖原始类的方法可以通过子类继承的方式,这里用继承肯定不方便了。</p>
-<blockquote>
-<p>重要的事情说三遍:<br>
-不要类目在覆盖原始类的方法<br>
-不要类目在覆盖原始类的方法<br>
-不要类目在覆盖原始类的方法</p>
+                <blockquote>
+<p>####移动开发十大linux命令Ranking<br>
+####<em>Top1</em></p>
 </blockquote>
-<blockquote>
-<p>原因是：纵观苹果的api,以NSString为例,有NSStringExtensionMethods,NSStringEncodingDetection等各种分类方法,如果我们再写一个分类覆盖原分类里的方法,那么系统就无法区分是A分类方法覆盖B分类的方法,还是B分类方法覆盖A分类的方法。</p>
-</blockquote>
-<p>最后,只有最后一个办法了,通过类目去替换掉AFJSONResponseSerializer的init方法.<br>
-原理就是Method Swizzle<br>
-#解决方案#<br>
-代码实现如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;AFNetworking/AFNetworking.h&gt;</span><br><span class="line">@interface AFJSONResponseSerializer (Category)</span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">#import&quot; AFJSONResponseSerializer+Category.h&quot;</span><br><span class="line">@implementation AFJSONResponseSerializer (Category)</span><br><span class="line"></span><br><span class="line">+ (void)load &#123;</span><br><span class="line">   staticdispatch_once_tonceToken;</span><br><span class="line">   dispatch_once(&amp;onceToken, ^&#123;</span><br><span class="line">   Method orignalMethod =class_getClassMethod([selfclass],@selector(init));            </span><br><span class="line">   Method swizzledMethod   </span><br><span class="line">     =class_getClassMethod([selfclass],@selector(dev4mobile_init));</span><br><span class="line">   method_exchangeImplementations(orignalMethod, swizzledMethod);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (instancetype)dev4mobile_init &#123;</span><br><span class="line">    [self dev4mobile_init];</span><br><span class="line">    self.acceptableContentTypes = [NSSetsetWithObjects:@&quot;application/json&quot;,@&quot;text/json&quot;,@&quot;text/javascript&quot;,@&quot;text/html&quot;,nil];</span><br><span class="line">    return self;</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>此处要注意的有几点：</p>
-</blockquote>
-<p>1.load是在程序的main函数之前就调用的,当程序开始运行,而不是编译的时候,调用load方法。未了保证全局的去交换AFJSONResponseSerializer的init方法和dev4mobile_init的IMP(函数指针)。</p>
-<p>2.用dispatch_once去保证两个方法的指针只交换一次。为了避免多线程出现多次调用的结果。</p>
-<p>3.有的人可能觉得调用[self dev4mobile_init];方法时会产生递归。其实不然，正确的顺序是这样的，AFJSONResponseSerializer先调用自身init方法,但是指向init方法的selector已经指向了dev4mobile_init方法了,所以会调到分类方法中,而调用[self dev4mobile_init];方法是,指向dev4mobile_init的selector指向的是AFJSONResponseSerializer的init方法,走完init方法,就会走</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">self.acceptableContentTypes= [NSSetsetWithObjects:@&quot;application/json&quot;,@&quot;text/json&quot;,@&quot;text/javascript&quot;,@&quot;text/html&quot;,nil];</span><br></pre></td></tr></table></figure>
-<p>这行代码了。</p>
-<p>4.Method swizzledMethod原理就是交换两个selector所指向的IMP.还有很多其他的实际用途:例如你不想调用UITextField一个的代理方法,想调到自定义的方法,此时就可以用她来hook一下。</p>
-<p>5.把dev4mobile_init换成xxx_init(xxx为自己命名的前缀)。</p>
-<blockquote>
-<p>这里是关于Method Swizzle的几个陷阱：<br>
-Method swizzling is not atomic<br>
-Changes behavior of un-owned<br>
-codePossible naming conflicts<br>
-Swizzling changes the method’s arguments<br>
-The order of swizzles matters<br>
-Difficult to understand (looks recursive)<br>
-Difficult to debug</p>
-</blockquote>
-<p>大家自己体会一下。</p>
-<hr>
-<p>推荐念茜的一篇Method Swizzle博客给大家<a href="http://blog.csdn.net/yiyaaixuexi/article/details/9374411" target="_blank" rel="noopener">http://blog.csdn.net/yiyaaixuexi/article/details/9374411</a></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">man</span><br></pre></td></tr></table></figure>
+<ul>
+<li>简单理解即男人可以帮助你,它是一个命令使用手册.</li>
+<li>man命令可以帮助查找各种命令的用法,当然也可以查找自身(man 命令)的用法,命令为man man.</li>
+<li>man具体命令格式为: man  [-acdfFhkKtwW]  [–path] [-m system] [-p string] [-C config_file] [-M pathlist] [-P pager]  [-B browser] [-H htmlpager] [-S section_list] [section] name …,[]内均为可选项.详细用法可以查看OPTIONS.</li>
+<li>常用命令：man man,man ls,man cat ,man sudo…</li>
+<li>如果执行man命令后,终端界面显示No manual entry for 你查找的命令,说明内核中无法找到此命令.if you want use it ,please install  first.Mac下一般使用 brew install 命令安装.很有可能,你需要先安装brew工具😎.</li>
+<li>第一个命令详细解释了,后面的命令都可以通过man 命令查看详细的用法,文档没什么好说的了,毕竟,对于编程而言,英文是最基本的.</li>
+</ul>
+<p>####<em>Top2</em></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pwd</span><br></pre></td></tr></table></figure>
+<ul>
+<li>pwd命令展示当前用户所在目录/路径<br>
+当你打开termianl interface,默认是处于~目录,~代表用户目录,就是你当前电脑所在的用户。</li>
+<li>常用命令:直接输入pwd就🆗了.我打印结果是:/Users/dev4mobile</li>
+</ul>
+<p>####<em>Top3</em></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd</span><br></pre></td></tr></table></figure>
+<ul>
+<li>cd命令可以访问文件的路径</li>
+<li>当你打开termianl interface,默认是处于~目录,~代表用户目录,就是你当前电脑所在的用户.</li>
+<li>用法：cd 文件路径<br>
+####<em>Top4</em></li>
+</ul>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -ail</span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>ls命令可以展示当前文件</p>
+</li>
+<li>
+<p>参数-a(all的简写)可以展示隐藏文件和非隐藏文件</p>
+</li>
+<li>
+<p>参数-i可以打印出文件的index node即索引节点,也叫i节点,可以对应0个或多个文件描述符.文件管理系统通过inode,可以找到数据块,数据块中又包含了文件的内容或者子文件的inode,又可以找到子文件的数据块.下面的cat命令读取数据就是这个原理.</p>
+</li>
+<li>
+<p>参数-l列出多个文件属性,包括文件的共享与权限,所属用户,所属组,大小,修改时间,文件名.例如:<br>
+8600853067   drwxr-xr-x  10 dev4mobile  staff    320 Dec 31 02:46 .<br>
+588582           drwxr-xr-x+ 93 dev4mobile  staff   2976 Jan  7 23:30 …<br>
+8602295238   -rw-r–r--@   1 dev4mobile  staff      15 Jan  7 17:10 config.txt<br>
+第一行最后点号(.)指代当前文件夹<br>
+第二行最后的…代表上一层文件夹. cd …命令可以回到上一层文件目录.</p>
+<h6 id="drwxr-xr-x第一位代表文件的类型">drwxr-xr-x,第一位代表文件的类型</h6>
+</li>
+<li>
+<p>-代表普通文件</p>
+</li>
+<li>
+<p>c(即character)代表字符设备文件.键盘鼠标,终端等设备文件就属于这一类.通过cd /dev &amp;&amp; ls -ail可以查看.</p>
+</li>
+<li>
+<p>b(即block)代表块文件.如硬盘,软盘等带缓冲区的设备文件属于块文件</p>
+</li>
+<li>
+<p>d代表directory,即目录文件.目录文件本质是存储了一张表,该表内容是inode number 和文件名的映射.</p>
+</li>
+<li>
+<p>l代表链接文件</p>
+</li>
+</ul>
+<h6 id="后面9位分三组">后面9位分三组</h6>
+<ul>
+<li>前三位代表的是:      文件拥有者(指当前登陆用户)对文件的权限,用u表示</li>
+<li>中间三位代表的是：文件拥有者同一组内用户对文件的权限,用g表示</li>
+<li>后三位代表的是：   其他组用户对文件的权限,用o表示<br>
+文件的权限包括: 是否有可读,可写,可执行的权限,分别用rwx表示(分别代表read,write,execute).不可的话就用-表示. u+g+o = all,三者整体可以用a(all的简写)表示,下文chomd命令会用到.</li>
+</ul>
+<p>####<em>Top5</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat</span><br></pre></td></tr></table></figure>
+<ul>
+<li>cat命令是Linux下的一个文本输出命令，通常是用于查看/打印某个文件的内容的</li>
+<li>cat具体命令格式为 : cat [-AbeEnstTuv] [–help] [–version] fileName</li>
+<li>cat /etc/passwd,查看所有用户</li>
+<li>cat /etc/groups,查看所有组</li>
+<li>cat /etc/hosts,查看主机名和IP映射关系的</li>
+<li>cat /etc/sudoers,查看用户执行的权限.该文件允许特定用户像root用户一样使用各种各样的命令,而不需要root用户的密码.用户执行sudo命令时,会找到 /etc/sudoers文件,判断该用户是否有执行sudo的权限.</li>
+<li>cat /etc/shells,查看支持的shell类型</li>
+<li>cat /etc/tyys,此文件是系统启动是0号进程来读取,并生成gett进程.</li>
+</ul>
+<p>####<em>Top6</em></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo  chmod</span><br></pre></td></tr></table></figure>
+<ul>
+<li>chmod命令可以改变文件的权限</li>
+<li>安装第三方工具时,经常写入系统文件夹,而普通用户对系统文件夹是不具备w权限的,常常会使用chomd a+w  fileName 命令使其具有可写入的权限.<br>
+但往往出现Operation not permitted,请使用sudo chmod a+w  fileName.</li>
+<li>sudo是以系统管理员身份(root用户)来执行这个命名,每次执行sudo chmod a+w  fileName会提示输入当前用户密码,输入即可.</li>
+<li>常用命令:sudo chmod a+w  fileName(例如brew的安转,需要cd /etc/local/Cellar,然后执行此命令).</li>
+</ul>
+<p>####<em>Top7</em></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir/touch</span><br></pre></td></tr></table></figure>
+<ul>
+<li>mkdir命令：在当前路径下创建文件夹</li>
+<li>touch命令：在当前路径下创建文件,当然也可以更改访问和修改时间,只是在下用此命令创建文件比较多,当然更常用的是vim文本编辑器.</li>
+<li>用法：mkdir/touch fileName<br>
+####<em>Top8</em></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim</span><br></pre></td></tr></table></figure>
+<ul>
+<li>vi是所有unix like 内置的文本编辑器,vim是vi的升级版,是一个很好的文本编程工具.</li>
+<li>vim命令比较多,学习曲线较陡峭,但熟练后效率比较高.</li>
+<li>用法：vim fileName<br>
+vim常用命令:<a href="https://www.fprintf.net/vimCheatSheet.html" target="_blank" rel="noopener">Vim Commonds Cheat Sheet</a><br>
+####<em>Top9</em></li>
+</ul>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find</span><br></pre></td></tr></table></figure>
+<ul>
+<li>find命令用于查找文件或目录</li>
+<li>用法：find ~  -name config.txt(在用户目录查看名字为config.txt的文件,路径和文件名替换成你自己的)</li>
+</ul>
+<p>####<em>Top10</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo</span><br></pre></td></tr></table></figure>
+<ul>
+<li>echo命令用于输出字符换,环境变量(在~/.bash_profile文件中配置).</li>
+<li>常用命令：echo $PATH,echo $SHELL.($PATH,$SHELL均为环境变量,可以通过env命令打印出所有环境变量)</li>
+</ul>
+<p>##小结</p>
+<ul>
+<li>以上为开发中经常用到的linux十大常用命令,你有同感吗？</li>
+<li>以上仅为常用命令的一些简要介绍,还有一些常用命令比如ifconfig,ping,source,ps,lsof,nc等尚未做出介绍.</li>
+<li>以上用法仅限于个人使用较多,更详细的用法规则请使用man命令查看.</li>
+<li>要使用以上命令,请先打开Mac上的termianl.app,然后在终端界面输入以上提到的命令</li>
+</ul>
 
                 
 
@@ -275,9 +346,13 @@ Difficult to debug</p>
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/article/移动开发十大linux命令排行榜/" data-toggle="tooltip" data-placement="top" title="移动开发十大linux命令排行榜">&larr; Previous Post</a>
+                            <a href="/article/Mac OS X十大必备命令/" data-toggle="tooltip" data-placement="top" title="X十大必备命令">&larr; Previous Post</a>
                         </li>
                     
+                    
+                        <li class="next">
+                            <a href="/article/Swizzle在AFNetworking中的实践/" data-toggle="tooltip" data-placement="top" title="Swizzle在AFNetworking中的实践">Next Post &rarr;</a>
+                        </li>
                     
                 </ul>
 
@@ -327,6 +402,24 @@ Difficult to debug</p>
             
             <!-- Tabe of Content -->
             <!-- Table of Contents -->
+
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#drwxr-xr-x第一位代表文件的类型"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">drwxr-xr-x,&#x7B2C;&#x4E00;&#x4F4D;&#x4EE3;&#x8868;&#x6587;&#x4EF6;&#x7684;&#x7C7B;&#x578B;</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#后面9位分三组"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">&#x540E;&#x9762;9&#x4F4D;&#x5206;&#x4E09;&#x7EC4;</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
 
                 
             <!-- Sidebar Container -->
