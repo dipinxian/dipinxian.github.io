@@ -2,6 +2,11 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <sitemap>
+        <loc>http://www.dipinxian.top/post-sitemap.xml</loc>
+        <lastmod>2019-12-27T15:24:15.632Z</lastmod>
+    </sitemap>
+
+    <sitemap>
         <loc>http://www.dipinxian.top/page-sitemap.xml</loc>
         <lastmod>2019-12-18T09:30:53.516Z</lastmod>
     </sitemap>
