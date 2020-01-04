@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          Mac OS X 十大必备命令 - 蔡安纺 | Blog
+          我的 2019 年个人总结 - 蔡安纺 | Blog
         
     </title>
 
-    <link rel="canonical" href="http://www.dipinxian.top/article/Mac OS X 十大必备命令/">
+    <link rel="canonical" href="http://www.dipinxian.top/article/我的 2019 年个人总结/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -90,11 +90,11 @@
                         <div class="tags">
                             
                         </div>
-                        <h1>Mac OS X 十大必备命令</h1>
+                        <h1>我的 2019 年个人总结</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by Stephen on
-                            2019-12-27
+                            2020-01-04
                         </span>
                     </div>
                 
@@ -212,76 +212,34 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>####<em>Top1</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname -a</span><br></pre></td></tr></table></figure>
-<ul>
-<li>此命令打印出操作系统名字,版本,xnu版本,cpu型号等.</li>
-<li>xnu版本可在<a href="https://opensource.apple.com/release/macos-10136.html" target="_blank" rel="noopener">https://opensource.apple.com</a>中查找.</li>
-</ul>
-<p>####<em>Top2</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">system_profiler -listDataTypes</span><br><span class="line">system_profiler SPHardwareDataType</span><br></pre></td></tr></table></figure>
-<ul>
-<li>以上命令打印出Mac 硬件信息.</li>
-<li>system_profiler可以命令打印Mac OSX系统硬件和软件的配置</li>
-<li>listDataTypes 在man system_profiler命令中查找</li>
-<li>SPHardwareDataType 参数在 system_profiler -listDataTypes 命令中查找<br>
-####<em>Top3</em></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl -n machdep.cpu.brand_string</span><br></pre></td></tr></table></figure>
-<ul>
-<li>以上命令打印出 cup的商标</li>
-<li>sysctl 设置或得到内核的状态或者打印硬件信息.</li>
-<li>machdep.cpu.brand_string 代表cup商标,在man sysctl 命令中可以找到.</li>
-</ul>
-<p>####<em>Top4</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">launchctl version      //  Prints the launchd version.</span><br><span class="line">launchctl list         //  Lists information about services.</span><br><span class="line">launchctl list   com.apple.Finder</span><br></pre></td></tr></table></figure>
-<ul>
-<li>launchctl命令是用来和内核进程launchd交互的.可以操纵launchd的启动,停止.</li>
-<li>Mac OS X系统启动过程:BIOS自检-&gt;加载内核-&gt;加载launchd-&gt;启动系统级别守护进程和代理程序-&gt;创建终端-&gt;登陆-&gt;启动用户级别守护进程和代理程序</li>
-<li>services 就是各种守护程序和代理程序.</li>
-</ul>
-<p>####<em>Top5</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo spctl --master-disable</span><br></pre></td></tr></table></figure>
-<ul>
-<li>此命令允许任何来源的应用程序安装到电脑中.系统默认是不允许的,有时安装应用程序需要使用到</li>
-<li>spctl命令用于设置子评估系统的策略安全/是否可用</li>
-</ul>
-<p>####<em>Top6</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifcofig</span><br></pre></td></tr></table></figure>
-<ul>
-<li>此命令用于配置网络接口参数.查看IP地址和Mac地址.</li>
-<li>直接使用ifcofig命令,在en0的位置可以显示Mac的网卡,IP,Mac地址等.</li>
-<li>Mac地址:Mac不是指Mac电脑,而是Media Access Control地址,指的是网卡地址,用6字节十六进制表示.一台设备如果有一个或多个网卡,则每个网卡都有一个唯一的Mac地址.</li>
-<li>IP地址和Mac地址是由ARP协议一一映射的<br>
-####<em>Top7</em></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping -c 100 -s  200  www.google.com</span><br></pre></td></tr></table></figure>
-<ul>
-<li>ping命令一般用于测试网络/检测主机是否可以访问.它是使用ICMP协议,发出请求,如果主机能连通,会收到响应.如果不通,会提示cannot resolve host / time out.</li>
-<li>c是count,代表打印到终端的次数</li>
-<li>s为size,代表每次传输多少字节,默认是56个字节</li>
-</ul>
-<p>####<em>Top8</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">top</span><br><span class="line">ps aux | grep qq</span><br></pre></td></tr></table></figure>
-<ul>
-<li>top命令用于实时显示进程状态</li>
-<li>ps aux | grep qq打印的是qq进程的行信息,包括USERPID,%CPU ,%MEM,VSZ,RSS,TT,STAT,STARTED,TIME等KEYWORDS,这些KEYWORDS可以通过ps aux 命令查看到,并且man  ps命令均可查看各字段的意思.</li>
-</ul>
-<p>####<em>Top9</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dscl . -list /Users UniqueID           //查看用户</span><br><span class="line">dscl . -list /Groups  PrimaryGroupID   //查看用户组</span><br></pre></td></tr></table></figure>
-<ul>
-<li>dscl命令用于用户和用户组的管理,均可以添加,删除,修改用户和用户组.</li>
-</ul>
-<p>####<em>Top10</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nc -l 8888             // server,服务端</span><br><span class="line">nc 另一台电脑的IP 8888   // client,客户端</span><br></pre></td></tr></table></figure>
-<ul>
-<li>以上两个命令可以实现局域网内的通讯.</li>
-<li>两台电脑的端口必须一致</li>
-<li>当然还可以实现局域网文件传输,类似于AirDrop功能.</li>
-</ul>
+                <p>时间来到公元 2020 年。记录一下 2019 年的工作与生活、成长与感悟。</p>
+<h2 id="time-line">time-line</h2>
+<p>跨年的最后四小时, 是罗老师<a href="https://live.iqiyi.com/s/19rsa8rwin.html" target="_blank" rel="noopener">《时间的朋友》</a>陪伴着我, 享受一场思想的旅行。</p>
+<p>11 月 25 日晚, 参与了一次混沌大学组织的线下课程, 嘉宾是成甲老师, 主题是<a href="http://wx.jfoto.cn/gallery/login?locale=zh-CN&amp;redirect_uri=http%3A%2F%2Fwx.jfoto.cn%2Fredirect%2Fhttp%253A%252F%252Flive.jfoto.cn%252Fg%252Foauth%252Fcallback%253Fredirect%253Dhttp%25253A%25252F%25252Flive.jfoto.cn%25252Fgti%25252F2f8f5afa%25253F%25" target="_blank" rel="noopener">《什么样的认知,能一秒钟切中问题的要害》</a></p>
+<p>但我觉得这其实是个伪命题。 因为连巴菲特也只是投自己了解公司的股票, 赚自己能力范围的钱。 在你无认知的领域, 有一万种收割你的方法, 包括你的财富和时间, 例如 P 吐 P、 数字加密货币。</p>
+<p>而所谓的认知是一个过程, 需要从实战到理论的不断往复, 而不是简单的干就完了, 更不是一秒钟就能能看到事物本质的, 你可能连看全都难。</p>
+<p>十月,  徒步行走三十公里一次。</p>
+<p>九月,  公司人员优化, 同事离职。转岗全端开发。</p>
+<p>八月,  和同事骑行三十公里一次。</p>
+<p>七月,  报名中国人民大业在职研究生课程</p>
+<p>。。。</p>
+<p>不好意思,年纪大了</p>
+<p>认识了几个志同道合的朋友, 还有一个北京买房就像买菜一样的北大美女老师</p>
+<h2 id="2019-年感悟">2019 年感悟</h2>
+<p><s><strong>无关金钱，甚至无关爱情</strong></s></p>
+<h3 id="懂得合作">懂得合作</h3>
+<p>我们每天都在和自己的身体合作，通过早睡早起、一日三餐的方式保证身体机能能够正常运转; 我们和自己的大脑合作，通过知识的输入和输出，来达到掌握知识的目的; 我们和公司合作，通过8小时的工作时间和热情，来获取物质的回报和事业的成就感; 我们和伴侣合作，用爱和付出，来获得家庭的温暖。一旦合作关系失衡或破裂，在不久的将来它会以另一种方式惩罚你，轻则取走你的财富, 重则逝去你的光阴，拿走你健康，丢掉你的信心,丧失你的意志。<strong>最重要的是我们要和自己的时间合作，通过好好珍惜生活的点滴时间, 来让自己有一个可以看的见的未来。</strong></p>
+<h3 id="open-your-mind">Open Your Mind</h3>
+<p>作为一个技术人。我们可能每天都会碰到技术盲点，我们不能得过且过，<strong>就像罗老师说的, 我们在别人苟且的地方不苟且一点，我们就你能超越大部分人</strong>。但怎么做到不苟且呢？我们需要找到最少一个能够帮助我们解决技术盲点的良师益友，这个人可能是你的朋友、同事、公司领导、社交工具的群友、网站上的陌生网友。<br>
+还有一点,技术人不能排斥英语，它能给你带来一手的信息。有了这个工具，就能更好的把知识点的来龙去脉、发展理解清楚。<strong>我的学习方法是把一个知识点的出现的原因，发展，改进搞清楚。</strong></p>
+<h3 id="寻找最优秀的资源">寻找最优秀的资源</h3>
+<p>包括最优秀的学习资源。文档的话通常是国外的一些官方的英文文档，看最好的视频学习网站。书籍的话看行业最经典的书籍。这也间接找到了最优秀的学习导师。<br>
+还包括找到最优秀的合作伙伴、创业伙伴、合作公司。我们选择好的公司本质上也是选择好的合作伙伴。</p>
+<h2 id="2020-年展望">2020 年展望</h2>
 <blockquote>
-<p>Just  Here.Thank you for your attention and likes,The best wishes to you,Thank you.</p>
+<p>把工作做优秀，去写公众号，去交朋友, 去旅行</p>
 </blockquote>
+<h4 id="那使你悲伤的一切也是你最热爱的一切-致逝去的-2019">那使你悲伤的一切，也是你最热爱的一切      —致逝去的 2019</h4>
 
                 
 
@@ -289,13 +247,9 @@
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/article/我的 2019 年个人总结/" data-toggle="tooltip" data-placement="top" title="我的 2019 年个人总结">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/article/移动开发十大linux命令排行榜/" data-toggle="tooltip" data-placement="top" title="移动开发十大linux命令排行榜">Next Post &rarr;</a>
+                            <a href="/article/Mac OS X 十大必备命令/" data-toggle="tooltip" data-placement="top" title="Mac OS X 十大必备命令">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
