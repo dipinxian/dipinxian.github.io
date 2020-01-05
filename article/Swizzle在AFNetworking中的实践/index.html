@@ -142,14 +142,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -212,12 +212,14 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>相信iOS开发的同学如果使用了AFNetworking这个第三方框架,可能会碰到以下Bug：</p>
+                <p>#阐述#<br>
+相信iOS开发的同学如果使用了AFNetworking这个第三方框架,可能会碰到以下Bug：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Error Domain=com.alamofire.error.serialization.responseCode=-1016&quot;Request failed:</span><br><span class="line"> unacceptable content-type: text/html&quot;UserInfo=&#123;com.alamofire.serialization.response.error.response</span><br><span class="line">= &#123; URL: http://c.m.163.com/nc/article/headline/T1348647853363/0-140.html &#125;</span><br><span class="line">&#123; statuscode:200, headers &#123; .....&#125;......22222c22626f6172646964223a226e6577735f7368656</span><br><span class="line">87569375f626273222c227074696d65223a22323031362d30332d30332031313a30323a3435227d5d7d&gt;,</span><br><span class="line"> NSLocalizedDescription=Request failed: unacceptablecontent-type: text/html&#125;</span><br></pre></td></tr></table></figure>
 <p>众所周知,这是AFNetworking不支持解析text/html(非官方的html)格式的数据.</p>
-<p>按道理讲：我们只要把</p>
+<p>#思路#<br>
+按道理讲：我们只要把</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">self.acceptableContentTypes= [NSSetsetWithObjects:@&quot;application/json&quot;,@&quot;text/json&quot;,</span><br><span class="line">@&quot;text/javascript&quot;,nil];</span><br></pre></td></tr></table></figure>
-<p>变成</p>
+<p>#####变成</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">self.acceptableContentTypes= [NSSetsetWithObjects:@&quot;application/json&quot;,@&quot;text/json&quot;,@&quot;text/javascript&quot;,@&quot;text/html&quot;,nil];</span><br></pre></td></tr></table></figure>
 <p>思路是完全正确的，但是我们真正处理起来就会有麻烦：</p>
 <p>我们一般是用cocoapods来管理第三方库的,方便第三方库的版本更新。既然是pod管理的,我们就无法去更改源代码,即便更改了,下次pod更新了,也会把修改好的代码覆盖掉。这样我们就需要其他方法来彻底解决这个问题了。</p>
@@ -228,18 +230,16 @@
 那么，通过类目去复写此方法,能不能实现呢？答案是否定的</p>
 <p>1.类目中不能super</p>
 <p>2.类目的本质是给原始类增加方法,而不是修改修改原始类的方法.要覆盖原始类的方法可以通过子类继承的方式,这里用继承肯定不方便了。</p>
+<p>重要的事情说三遍:</p>
 <blockquote>
-<p>重要的事情说三遍:<br>
-不要类目在覆盖原始类的方法<br>
+<p>不要类目在覆盖原始类的方法<br>
 不要类目在覆盖原始类的方法<br>
 不要类目在覆盖原始类的方法</p>
 </blockquote>
-<blockquote>
 <p>原因是：纵观苹果的api,以NSString为例,有NSStringExtensionMethods,NSStringEncodingDetection等各种分类方法,如果我们再写一个分类覆盖原分类里的方法,那么系统就无法区分是A分类方法覆盖B分类的方法,还是B分类方法覆盖A分类的方法。</p>
-</blockquote>
 <p>最后,只有最后一个办法了,通过类目去替换掉AFJSONResponseSerializer的init方法.<br>
 原理就是Method Swizzle<br>
-解决方案<br>
+#解决方案#<br>
 代码实现如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;AFNetworking/AFNetworking.h&gt;</span><br><span class="line">@interface AFJSONResponseSerializer (Category)</span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">#import&quot; AFJSONResponseSerializer+Category.h&quot;</span><br><span class="line">@implementation AFJSONResponseSerializer (Category)</span><br><span class="line"></span><br><span class="line">+ (void)load &#123;</span><br><span class="line">   staticdispatch_once_tonceToken;</span><br><span class="line">   dispatch_once(&amp;onceToken, ^&#123;</span><br><span class="line">   Method orignalMethod =class_getClassMethod([selfclass],@selector(init));            </span><br><span class="line">   Method swizzledMethod   </span><br><span class="line">     =class_getClassMethod([selfclass],@selector(dev4mobile_init));</span><br><span class="line">   method_exchangeImplementations(orignalMethod, swizzledMethod);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (instancetype)dev4mobile_init &#123;</span><br><span class="line">    [self dev4mobile_init];</span><br><span class="line">    self.acceptableContentTypes = [NSSetsetWithObjects:@&quot;application/json&quot;,@&quot;text/json&quot;,@&quot;text/javascript&quot;,@&quot;text/html&quot;,nil];</span><br><span class="line">    return self;</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
 <blockquote>

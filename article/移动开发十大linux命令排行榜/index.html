@@ -142,14 +142,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -212,11 +212,8 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <blockquote>
-<p>####移动开发十大linux命令Ranking<br>
-####<em>Top1</em></p>
-</blockquote>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">man</span><br></pre></td></tr></table></figure>
+                <h4 id="top1">Top1</h4>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">man</span><br></pre></td></tr></table></figure>
 <ul>
 <li>简单理解即男人可以帮助你,它是一个命令使用手册.</li>
 <li>man命令可以帮助查找各种命令的用法,当然也可以查找自身(man 命令)的用法,命令为man man.</li>
@@ -225,22 +222,22 @@
 <li>如果执行man命令后,终端界面显示No manual entry for 你查找的命令,说明内核中无法找到此命令.if you want use it ,please install  first.Mac下一般使用 brew install 命令安装.很有可能,你需要先安装brew工具😎.</li>
 <li>第一个命令详细解释了,后面的命令都可以通过man 命令查看详细的用法,文档没什么好说的了,毕竟,对于编程而言,英文是最基本的.</li>
 </ul>
-<p>####<em>Top2</em></p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pwd</span><br></pre></td></tr></table></figure>
+<h4 id="top2">Top2</h4>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pwd</span><br></pre></td></tr></table></figure>
 <ul>
 <li>pwd命令展示当前用户所在目录/路径<br>
 当你打开termianl interface,默认是处于~目录,~代表用户目录,就是你当前电脑所在的用户。</li>
 <li>常用命令:直接输入pwd就🆗了.我打印结果是:/Users/dev4mobile</li>
 </ul>
-<p>####<em>Top3</em></p>
+<h4 id="top3">Top3</h4>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd</span><br></pre></td></tr></table></figure>
 <ul>
 <li>cd命令可以访问文件的路径</li>
 <li>当你打开termianl interface,默认是处于~目录,~代表用户目录,就是你当前电脑所在的用户.</li>
-<li>用法：cd 文件路径<br>
-####<em>Top4</em></li>
+<li>用法：cd 文件路径</li>
 </ul>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -ail</span><br></pre></td></tr></table></figure>
+<h4 id="top4">Top4</h4>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -ail</span><br></pre></td></tr></table></figure>
 <ul>
 <li>
 <p>ls命令可以展示当前文件</p>
@@ -283,8 +280,8 @@
 <li>后三位代表的是：   其他组用户对文件的权限,用o表示<br>
 文件的权限包括: 是否有可读,可写,可执行的权限,分别用rwx表示(分别代表read,write,execute).不可的话就用-表示. u+g+o = all,三者整体可以用a(all的简写)表示,下文chomd命令会用到.</li>
 </ul>
-<p>####<em>Top5</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat</span><br></pre></td></tr></table></figure>
+<h4 id="top5">Top5</h4>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat</span><br></pre></td></tr></table></figure>
 <ul>
 <li>cat命令是Linux下的一个文本输出命令，通常是用于查看/打印某个文件的内容的</li>
 <li>cat具体命令格式为 : cat [-AbeEnstTuv] [–help] [–version] fileName</li>
@@ -295,8 +292,8 @@
 <li>cat /etc/shells,查看支持的shell类型</li>
 <li>cat /etc/tyys,此文件是系统启动是0号进程来读取,并生成gett进程.</li>
 </ul>
-<p>####<em>Top6</em></p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo  chmod</span><br></pre></td></tr></table></figure>
+<h4 id="top6">Top6</h4>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo  chmod</span><br></pre></td></tr></table></figure>
 <ul>
 <li>chmod命令可以改变文件的权限</li>
 <li>安装第三方工具时,经常写入系统文件夹,而普通用户对系统文件夹是不具备w权限的,常常会使用chomd a+w  fileName 命令使其具有可写入的权限.<br>
@@ -304,34 +301,34 @@
 <li>sudo是以系统管理员身份(root用户)来执行这个命名,每次执行sudo chmod a+w  fileName会提示输入当前用户密码,输入即可.</li>
 <li>常用命令:sudo chmod a+w  fileName(例如brew的安转,需要cd /etc/local/Cellar,然后执行此命令).</li>
 </ul>
-<p>####<em>Top7</em></p>
+<h4 id="top7">Top7</h4>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir/touch</span><br></pre></td></tr></table></figure>
 <ul>
 <li>mkdir命令：在当前路径下创建文件夹</li>
 <li>touch命令：在当前路径下创建文件,当然也可以更改访问和修改时间,只是在下用此命令创建文件比较多,当然更常用的是vim文本编辑器.</li>
-<li>用法：mkdir/touch fileName<br>
-####<em>Top8</em></li>
+<li>用法：mkdir/touch fileName</li>
 </ul>
+<h4 id="top8">Top8</h4>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim</span><br></pre></td></tr></table></figure>
 <ul>
 <li>vi是所有unix like 内置的文本编辑器,vim是vi的升级版,是一个很好的文本编程工具.</li>
 <li>vim命令比较多,学习曲线较陡峭,但熟练后效率比较高.</li>
 <li>用法：vim fileName<br>
-vim常用命令:<a href="https://www.fprintf.net/vimCheatSheet.html" target="_blank" rel="noopener">Vim Commonds Cheat Sheet</a><br>
-####<em>Top9</em></li>
+vim常用命令:<a href="https://www.fprintf.net/vimCheatSheet.html" target="_blank" rel="noopener">Vim Commonds Cheat Sheet</a></li>
 </ul>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find</span><br></pre></td></tr></table></figure>
+<h4 id="top9">Top9</h4>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find</span><br></pre></td></tr></table></figure>
 <ul>
 <li>find命令用于查找文件或目录</li>
 <li>用法：find ~  -name config.txt(在用户目录查看名字为config.txt的文件,路径和文件名替换成你自己的)</li>
 </ul>
-<p>####<em>Top10</em></p>
+<h4 id="top10">Top10</h4>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo</span><br></pre></td></tr></table></figure>
 <ul>
 <li>echo命令用于输出字符换,环境变量(在~/.bash_profile文件中配置).</li>
 <li>常用命令：echo $PATH,echo $SHELL.($PATH,$SHELL均为环境变量,可以通过env命令打印出所有环境变量)</li>
 </ul>
-<p>##小结</p>
+<h2 id="总结">总结</h2>
 <ul>
 <li>以上为开发中经常用到的linux十大常用命令,你有同感吗？</li>
 <li>以上仅为常用命令的一些简要介绍,还有一些常用命令比如ifconfig,ping,source,ps,lsof,nc等尚未做出介绍.</li>
@@ -415,7 +412,7 @@ vim常用命令:<a href="https://www.fprintf.net/vimCheatSheet.html" target="_bl
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#drwxr-xr-x第一位代表文件的类型"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">drwxr-xr-x,&#x7B2C;&#x4E00;&#x4F4D;&#x4EE3;&#x8868;&#x6587;&#x4EF6;&#x7684;&#x7C7B;&#x578B;</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#后面9位分三组"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">&#x540E;&#x9762;9&#x4F4D;&#x5206;&#x4E09;&#x7EC4;</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#top1"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Top1</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#top2"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Top2</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#top3"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Top3</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#top4"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">Top4</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#drwxr-xr-x第一位代表文件的类型"><span class="toc-nav-number">4.0.1.</span> <span class="toc-nav-text">drwxr-xr-x,&#x7B2C;&#x4E00;&#x4F4D;&#x4EE3;&#x8868;&#x6587;&#x4EF6;&#x7684;&#x7C7B;&#x578B;</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#后面9位分三组"><span class="toc-nav-number">4.0.2.</span> <span class="toc-nav-text">&#x540E;&#x9762;9&#x4F4D;&#x5206;&#x4E09;&#x7EC4;</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#top5"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">Top5</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#top6"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">Top6</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#top7"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">Top7</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#top8"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">Top8</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#top9"><span class="toc-nav-number">9.</span> <span class="toc-nav-text">Top9</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#top10"><span class="toc-nav-number">10.</span> <span class="toc-nav-text">Top10</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#总结"><span class="toc-nav-number"></span> <span class="toc-nav-text">&#x603B;&#x7ED3;</span></a>
         
         </div>
       </aside>

@@ -142,14 +142,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -212,67 +212,67 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>####<em>Top1</em></p>
+                <h4 id="top1">Top1</h4>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname -a</span><br></pre></td></tr></table></figure>
 <ul>
 <li>此命令打印出操作系统名字,版本,xnu版本,cpu型号等.</li>
 <li>xnu版本可在<a href="https://opensource.apple.com/release/macos-10136.html" target="_blank" rel="noopener">https://opensource.apple.com</a>中查找.</li>
 </ul>
-<p>####<em>Top2</em></p>
+<h4 id="top2">Top2</h4>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">system_profiler -listDataTypes</span><br><span class="line">system_profiler SPHardwareDataType</span><br></pre></td></tr></table></figure>
 <ul>
 <li>以上命令打印出Mac 硬件信息.</li>
 <li>system_profiler可以命令打印Mac OSX系统硬件和软件的配置</li>
 <li>listDataTypes 在man system_profiler命令中查找</li>
-<li>SPHardwareDataType 参数在 system_profiler -listDataTypes 命令中查找<br>
-####<em>Top3</em></li>
+<li>SPHardwareDataType 参数在 system_profiler -listDataTypes 命令中查找</li>
 </ul>
+<h4 id="top3">Top3</h4>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl -n machdep.cpu.brand_string</span><br></pre></td></tr></table></figure>
 <ul>
 <li>以上命令打印出 cup的商标</li>
 <li>sysctl 设置或得到内核的状态或者打印硬件信息.</li>
 <li>machdep.cpu.brand_string 代表cup商标,在man sysctl 命令中可以找到.</li>
 </ul>
-<p>####<em>Top4</em></p>
+<h4 id="top4">Top4</h4>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">launchctl version      //  Prints the launchd version.</span><br><span class="line">launchctl list         //  Lists information about services.</span><br><span class="line">launchctl list   com.apple.Finder</span><br></pre></td></tr></table></figure>
 <ul>
 <li>launchctl命令是用来和内核进程launchd交互的.可以操纵launchd的启动,停止.</li>
 <li>Mac OS X系统启动过程:BIOS自检-&gt;加载内核-&gt;加载launchd-&gt;启动系统级别守护进程和代理程序-&gt;创建终端-&gt;登陆-&gt;启动用户级别守护进程和代理程序</li>
 <li>services 就是各种守护程序和代理程序.</li>
 </ul>
-<p>####<em>Top5</em></p>
+<h4 id="top5">Top5</h4>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo spctl --master-disable</span><br></pre></td></tr></table></figure>
 <ul>
 <li>此命令允许任何来源的应用程序安装到电脑中.系统默认是不允许的,有时安装应用程序需要使用到</li>
 <li>spctl命令用于设置子评估系统的策略安全/是否可用</li>
 </ul>
-<p>####<em>Top6</em></p>
+<h4 id="top6">Top6</h4>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifcofig</span><br></pre></td></tr></table></figure>
 <ul>
 <li>此命令用于配置网络接口参数.查看IP地址和Mac地址.</li>
 <li>直接使用ifcofig命令,在en0的位置可以显示Mac的网卡,IP,Mac地址等.</li>
 <li>Mac地址:Mac不是指Mac电脑,而是Media Access Control地址,指的是网卡地址,用6字节十六进制表示.一台设备如果有一个或多个网卡,则每个网卡都有一个唯一的Mac地址.</li>
-<li>IP地址和Mac地址是由ARP协议一一映射的<br>
-####<em>Top7</em></li>
+<li>IP地址和Mac地址是由ARP协议一一映射的</li>
 </ul>
+<h4 id="top7">Top7</h4>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping -c 100 -s  200  www.google.com</span><br></pre></td></tr></table></figure>
 <ul>
 <li>ping命令一般用于测试网络/检测主机是否可以访问.它是使用ICMP协议,发出请求,如果主机能连通,会收到响应.如果不通,会提示cannot resolve host / time out.</li>
 <li>c是count,代表打印到终端的次数</li>
 <li>s为size,代表每次传输多少字节,默认是56个字节</li>
 </ul>
-<p>####<em>Top8</em></p>
+<h4 id="top8">Top8</h4>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">top</span><br><span class="line">ps aux | grep qq</span><br></pre></td></tr></table></figure>
 <ul>
 <li>top命令用于实时显示进程状态</li>
 <li>ps aux | grep qq打印的是qq进程的行信息,包括USERPID,%CPU ,%MEM,VSZ,RSS,TT,STAT,STARTED,TIME等KEYWORDS,这些KEYWORDS可以通过ps aux 命令查看到,并且man  ps命令均可查看各字段的意思.</li>
 </ul>
-<p>####<em>Top9</em></p>
+<h4 id="top9">Top9</h4>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dscl . -list /Users UniqueID           //查看用户</span><br><span class="line">dscl . -list /Groups  PrimaryGroupID   //查看用户组</span><br></pre></td></tr></table></figure>
 <ul>
 <li>dscl命令用于用户和用户组的管理,均可以添加,删除,修改用户和用户组.</li>
 </ul>
-<p>####<em>Top10</em></p>
+<h4 id="top10">Top10</h4>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nc -l 8888             // server,服务端</span><br><span class="line">nc 另一台电脑的IP 8888   // client,客户端</span><br></pre></td></tr></table></figure>
 <ul>
 <li>以上两个命令可以实现局域网内的通讯.</li>
